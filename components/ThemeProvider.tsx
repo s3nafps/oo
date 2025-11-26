@@ -46,10 +46,8 @@ export default function ThemeProvider({ children }: { children: React.ReactNode 
     setTheme(prev => prev === 'light' ? 'dark' : 'light')
   }
 
-  if (!mounted) {
-    return <>{children}</>
-  }
-
+  // Always provide the context, even during SSR
+  // Use default 'light' theme during SSR, will update on client
   return (
     <ThemeContext.Provider value={{ theme, toggleTheme }}>
       {children}

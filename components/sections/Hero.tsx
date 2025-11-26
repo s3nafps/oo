@@ -2,15 +2,8 @@
 
 import { motion } from 'framer-motion'
 import { Download, Mail, Linkedin, Phone, MapPin } from 'lucide-react'
-import { useEffect, useState } from 'react'
 
 export default function Hero() {
-  const [mounted, setMounted] = useState(false)
-
-  useEffect(() => {
-    setMounted(true)
-  }, [])
-
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -25,8 +18,6 @@ export default function Hero() {
     hidden: { opacity: 0, y: 20 },
     visible: { opacity: 1, y: 0 },
   }
-
-  if (!mounted) return null
 
   return (
     <section
